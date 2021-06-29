@@ -63,7 +63,7 @@ public class ProductController {
             
             
         	Properties prop1 = new Properties();
-			String propFileName1 = "./cmdirectory/appconfig.properties";
+			String propFileName1 = "appconfig.properties";
  
 			inputStream1 = getClass().getClassLoader().getResourceAsStream(propFileName1);
  
