@@ -36,6 +36,29 @@ public class ProductController {
 			String hostlist = prop.getProperty("FluentdHostList");
             System.out.println("ENvironment :"+environment);
             System.out.println("HOSTLIST :"+hostlist);
+            
+            
+        	Properties prop1 = new Properties();
+			String propFileName1 = "./cmdirectory/appconfig.properties";
+ 
+			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+ 
+			if (inputStream != null) {
+				prop.load(inputStream);
+			} else {
+				System.out.println("File Not Found");
+				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+			}
+ 
+		 
+			// get the property value and print it out
+			String environment1 = prop.getProperty("ENV_NAME");
+			String hostlist1 = prop.getProperty("HOST_NAME");
+            System.out.println("ENvironment :"+environment1);
+            System.out.println("HOSTLIST :"+hostlist1);
+            
+            
+            
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		} finally {
