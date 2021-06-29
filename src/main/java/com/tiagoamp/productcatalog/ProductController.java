@@ -1,8 +1,11 @@
 package com.tiagoamp.productcatalog;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.Properties;
 
@@ -17,6 +20,8 @@ public class ProductController {
 		System.out.println("Reading property file");
 			
 		InputStream inputStream=null;
+		
+		InputStream inputStream1=null;
 		try {
 			Properties prop = new Properties();
 			String propFileName = "ESBFluentd.properties";
@@ -37,17 +42,36 @@ public class ProductController {
             System.out.println("ENvironment :"+environment);
             System.out.println("HOSTLIST :"+hostlist);
             
+            Path currentRelativePath = Paths.get("");
+    		String s = currentRelativePath.toAbsolutePath().toString();
+    		System.out.println("Current absolute path is: " + s);
+    		
+    		 File directoryPath = new File(s);
+    	      //List of all files and directories
+    	      String contents[] = directoryPath.list();
+    	      System.out.println("List of files and directories in the specified directory:");
+    	      for(int i=0; i<contents.length; i++) {
+    	         System.out.println(contents[i]);
+    	      }
+    	      
+    	      
+    	    
+    	        	System.out.println("CLASS PATH"+System.getProperty("java.class.path"));
+            
+            
+            
+            
             
         	Properties prop1 = new Properties();
 			String propFileName1 = "./cmdirectory/appconfig.properties";
  
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName1);
+			inputStream1 = getClass().getClassLoader().getResourceAsStream(propFileName1);
  
-			if (inputStream != null) {
+			if (inputStream1 != null) {
 				prop1.load(inputStream);
 			} else {
 				System.out.println("File Not Found");
-				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+				throw new FileNotFoundException("property file '" + propFileName1 + "' not found in the classpath");
 			}
  
 		 
