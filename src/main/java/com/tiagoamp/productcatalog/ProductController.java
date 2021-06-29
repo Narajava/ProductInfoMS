@@ -41,10 +41,10 @@ public class ProductController {
         	Properties prop1 = new Properties();
 			String propFileName1 = "./cmdirectory/appconfig.properties";
  
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName1);
  
 			if (inputStream != null) {
-				prop.load(inputStream);
+				prop1.load(inputStream);
 			} else {
 				System.out.println("File Not Found");
 				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
@@ -52,8 +52,8 @@ public class ProductController {
  
 		 
 			// get the property value and print it out
-			String environment1 = prop.getProperty("ENV_NAME");
-			String hostlist1 = prop.getProperty("HOST_NAME");
+			String environment1 = prop1.getProperty("ENV_NAME");
+			String hostlist1 = prop1.getProperty("HOST_NAME");
             System.out.println("ENvironment :"+environment1);
             System.out.println("HOSTLIST :"+hostlist1);
             
