@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-@PropertySource({ "classpath:ESBFluentd.properties", "classpath:application.yml" })
+@PropertySource({ "classpath:${CONFIG_LOCATION}/ESBFluentd.properties", "classpath:application.yml" })
 @SpringBootApplication
 public class ProductCatalogApplication {
 
