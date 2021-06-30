@@ -1,6 +1,7 @@
 package com.tiagoamp.productcatalog;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,14 +25,12 @@ public class ProductController {
 		InputStream inputStream1=null;
 		try {
 			Properties prop = new Properties();
-			String propFileName = "/etc/config/ESBFluentd.properties";
+			String propFileName = "etc/config/ESBFluentd.properties";
  
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+			inputStream = new FileInputStream(propFileName);   
  
 			if (inputStream != null) {
 				prop.load(inputStream);
-			} else {
-				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
 			}
  
 			Date time = new Date(System.currentTimeMillis());
@@ -63,15 +62,12 @@ public class ProductController {
             
             
         	Properties prop1 = new Properties();
-			String propFileName1 = "/deployments/config/ESBFluentd.properties";
+			String propFileName1 = "deployments/config/ESBFluentd.properties";
  
-			inputStream1 = getClass().getClassLoader().getResourceAsStream(propFileName1);
+			inputStream1 = new FileInputStream(propFileName1);
  
 			if (inputStream1 != null) {
-				prop1.load(inputStream);
-			} else {
-				System.out.println("File Not Found");
-				throw new FileNotFoundException("property file '" + propFileName1 + "' not found in the classpath");
+				prop1.load(inputStream1);
 			}
  
 		 
