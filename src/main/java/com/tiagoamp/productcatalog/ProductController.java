@@ -24,7 +24,7 @@ public class ProductController {
 		InputStream inputStream1=null;
 		try {
 			Properties prop = new Properties();
-			String propFileName = "ESBFluentd.properties";
+			String propFileName = "/etc/config/ESBFluentd.properties";
  
 			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
  
@@ -63,7 +63,7 @@ public class ProductController {
             
             
         	Properties prop1 = new Properties();
-			String propFileName1 = "appconfig.properties";
+			String propFileName1 = "/deployments/config/ESBFluentd.properties";
  
 			inputStream1 = getClass().getClassLoader().getResourceAsStream(propFileName1);
  
