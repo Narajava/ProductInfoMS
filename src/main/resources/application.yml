@@ -1,6 +1,9 @@
 spring:
   application:
     name: PRODUCT-CATALOG-SERVICE
+    
+hello:
+  msg: Welcome to inside application yaml    
 
 #  data:
 #    rest:
