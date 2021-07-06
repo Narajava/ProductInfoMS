@@ -1,15 +1,8 @@
 package com.tiagoamp.productcatalog;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Date;
-import java.util.Properties;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,12 +13,19 @@ public class ProductController {
 	@Value("${hello.msg}")
 	private String hostName;
 	
+	  @Autowired
+	  private Environment env;
+	
 	
 	
 	@GetMapping("/hello-msg")
 	public String getMessage() {
 		System.out.println("Reading property file");
 		System.out.println("Hello Message :"+hostName);
+		System.out.println(System.getenv("HOSTNAME"));
+		System.out.println(env.getProperty("HOSTNAME"));
+		System.out.println(env.getProperty("app.name"));
+		System.out.println(env.getProperty("localhost"));
 			
 //		InputStream inputStream=null;
 //		
